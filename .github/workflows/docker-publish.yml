@@ -39,6 +39,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels}}
+
+      - name: Verify built Docker images
+        run: |
+            docker images
       - name: Scan Docker image with Trivy
         id: trivy-scan
         uses: aquasecurity/trivy-action@master
