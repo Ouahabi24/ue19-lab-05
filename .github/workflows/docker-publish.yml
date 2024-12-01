@@ -38,7 +38,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:master
           labels: ${{ steps.meta.outputs.labels}}
 
       - name: Verify built Docker images
