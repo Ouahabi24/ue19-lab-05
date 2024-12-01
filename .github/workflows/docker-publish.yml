@@ -30,7 +30,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ github.repository || tolower }}/ue19-lab-05:latest
+            ghcr.io/${{ github.repository | tolower }}/ue19-lab-05:latest
 
       - name: Build Docker image
         id: build
