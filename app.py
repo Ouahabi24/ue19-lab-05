@@ -15,5 +15,5 @@ def fetch_joke():
         print(f"An error occurred while fetching the joke: {e}")
 
 if __name__ == "__main__":
-    print("Fetching a joke for you....")
+    print("Fetching a joke for you........")
     fetch_joke()
