@@ -30,9 +30,10 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ github.repository }}
+            ghcr.io/${{ github.repository }}:latest
+
       - name: Build and push Docker images
-        id: push
+        id: build
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -42,7 +43,8 @@ jobs:
 
       - name: Verify built Docker images
         run: |
-            docker images
+          docker images
+
       - name: Scan Docker image with Trivy
         id: trivy-scan
         uses: aquasecurity/trivy-action@master
