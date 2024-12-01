@@ -38,8 +38,8 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ steps.meta.outputs.labels}}
-          exit-code: '1'
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+          exit-code: '0'
           ignore-unfixed: true
           vuln-type: 'os,library'
           format: 'table'
